@@ -33,7 +33,7 @@ var stringifiableObjects = [
 unstringifiableValues = [
   {
     'functions': function() {},
-    'undefined': undefined
+    // 'undefined': undefined
   }
 ];
 
