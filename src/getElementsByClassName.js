@@ -30,29 +30,31 @@ var getElementsByClassName = function(className) {
     node = arguments[2];
   }
 
-  console.log('node: ', cheat, node);
+  console.log('node: ', node.className);
   
   for (let i = 0; i < node.childNodes.length; i++) {
-    if (node.childNodes.length > 1) {
+    if (node.childNodes) {
     //somehow get currentNode
-      cheat++;
-      getElementsByClassName(className, result, node.childNodes[i], cheat);
-    } else {
-      // console.log($('.class'))
-
-      if ($('.targetClassName') === className) {
-        console.log('you have a match*********');
-   
-      // console.log('1', node.childNodes[i]);
-      // console.log('2', node.childNodes);
-      // console.log('3', node);
+      // cheat++;
+      getElementsByClassName(className, result, node.childNodes[i]);
+    
+      // if(node.className.includes(className)) {
+      if(node.className === className) {
+        result.push(node);
       }
+    } 
+
+
+  
+
     // if (node.childNodes[i] === className)
     //check if equal to targe. if yes, push into result array
-      // result.push()
-    }
+    // result.push()
+  
   }
+  console.log(result);
   return result;
+
  
 };
 
