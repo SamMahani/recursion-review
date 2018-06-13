@@ -1,6 +1,6 @@
 var htmlStrings = [
-  '<div class="targetClassName"></div>',
-  // '<div class="otherClassName targetClassName"></div>',
+  // '<div class="targetClassName"></div>',
+  '<div class="otherClassName targetClassName"></div>',
   // '<div><div class="targetClassName"></div></div>',
   // '<div><div class="targetClassName"><div class="targetClassName"></div></div></div>',
   // '<div><div></div><div><div class="targetClassName"></div></div></div>',
@@ -17,11 +17,11 @@ describe('getElementsByClassName', function() {
       $('body').append($rootElement);
 
       var result = getElementsByClassName('targetClassName');
-      // console.log('result:', result);
+      console.log('result:', result);
 
       var expectedNodeList = document.getElementsByClassName('targetClassName');
       var expectedArray = Array.prototype.slice.apply(expectedNodeList);
-      // console.log('expectedArray:', expectedArray);
+      console.log('expectedArray:', expectedArray);
 
       var equality = _.isEqual(result, expectedArray); // why can't we use `===` here?
       expect(equality).to.equal(true);

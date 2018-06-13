@@ -7,55 +7,32 @@
 var getElementsByClassName = function(className) {
   var result;
   var node;
-
-  var cheat;
-  if (arguments[3] === undefined) {
-    cheat = 0;
-  } else {
-    cheat = arguments[3];
-  }
-
-
-
-  
+  //define result
   if (arguments[1] === undefined) {
     result = [];
   } else {
     result = arguments[1];
   }
-
+  //define node
+  //assumption: we are working with the correct node when using document.body
   if (arguments[2] === undefined) {
     node = document.body;
   } else {
     node = arguments[2];
   }
-
-  console.log('node: ', node.className);
-  
+  // console.log('node: ', node.className);
   for (let i = 0; i < node.childNodes.length; i++) {
-    if (node.childNodes) {
-    //somehow get currentNode
-      // cheat++;
+    if (node.childNodes && node.className === className) {
       getElementsByClassName(className, result, node.childNodes[i]);
     
-      // if(node.className.includes(className)) {
-      if(node.className === className) {
-        result.push(node);
       }
     } 
 
-
-  
-
-    // if (node.childNodes[i] === className)
-    //check if equal to targe. if yes, push into result array
-    // result.push()
-  
+  if(node.className === className) {
+    result.push(node);  
   }
-  console.log(result);
-  return result;
 
- 
+  return result.reverse();
 };
 
 /*
